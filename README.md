@@ -1,4 +1,4 @@
-# HULA hoop
+# CAVER_bmv2
 
 Implementation of the [HULA](https://conferences.sigcomm.org/sosr/2016/papers/sosr_paper67.pdf) algorithm.
 
