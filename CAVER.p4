@@ -596,7 +596,7 @@ control MyIngress(inout headers hdr,
                     pathCE_egress.read(pathCE,  meta.host_id);
                     new_pathCE = (localCE > (CE_t)hdr.caver_ack.pathCE) ? localCE :(CE_t) hdr.caver_ack.pathCE;
                     
-                    if (hasSrcRoute ==0 || SrcRoute_hop_0 == hdr.caver_ack.hop_0 || new_pathCE < pathCE){
+                    if (hasSrcRoute ==0 || SrcRoute_hop_0 == (port_id_t)standard_metadata.ingress_port || new_pathCE < pathCE){
                         SrcRoute_valid.write(meta.host_id, 1);
                         pathCE = new_pathCE;
                         // 用包头中的路径更新表格里的路径
@@ -633,7 +633,7 @@ control MyIngress(inout headers hdr,
                     pathCE_egress.read(pathCE, meta.host_id);
                     new_pathCE = (localCE > (CE_t)hdr.caver_ack.pathCE) ? localCE : (CE_t)hdr.caver_ack.pathCE;
                     
-                    if (hasSrcRoute ==0 || SrcRoute_hop_0 == hdr.caver_ack.hop_0 || new_pathCE < pathCE){
+                    if (hasSrcRoute ==0 || SrcRoute_hop_0 == (port_id_t)standard_metadata.ingress_port || new_pathCE < pathCE){
                         SrcRoute_valid.write(meta.host_id, 1);
                         pathCE = new_pathCE;
                         // 用包头路径的更新表项的数据以及包头的数据
